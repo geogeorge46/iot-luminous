@@ -25,11 +25,29 @@
 #include <Preferences.h>
 #include <ArduinoJson.h> // ArduinoJson v6 or v7 compatible
 
-// Include user configuration (Copy config.h.example to config.h)
+// Include user configuration or use embedded defaults
 #if __has_include("config.h")
   #include "config.h"
-#else
+#elif __has_include("config.h.example")
   #include "config.h.example"
+#else
+  // Fallback configuration if opened in a standalone/temporary Arduino IDE tab
+  #define WIFI_SSID           "lenovo"
+  #define WIFI_PASSWORD       "9876543210"
+  #define SUPABASE_PROJECT_REF "milgueqksyqeaxfpnxad"
+  #define SUPABASE_HOST       SUPABASE_PROJECT_REF ".supabase.co"
+  #define SUPABASE_API_PATH   "/functions/v1/device-api"
+  #define SUPABASE_ANON_KEY   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pbGd1ZXFrc3lxZWF4ZnBueGFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMTg2ODgsImV4cCI6MjEwODU5NDY4OH0.jRlVOPxjWUcU924hY6m45YpZ_CRn2kJASB3CBUFYMwI"
+  #define DEVICE_IDENTIFIER   "ESP32-LIGHT-001"
+  #define DEVICE_API_TOKEN    "esp32_super_secret_token_123"
+  #define PIN_LDR_ADC         34
+  #define PIN_LED_ACTUATOR    23
+  #define PIN_PIR_MOTION      19
+  #define DEFAULT_DARK_THRESHOLD   1500
+  #define DEFAULT_LIGHT_THRESHOLD  1800
+  #define DEFAULT_POLARITY_INV     false
+  #define DEFAULT_AUTO_MODE        true
+  #define DEFAULT_UPLOAD_INTERVAL  5000
 #endif
 
 // =========================================================================
