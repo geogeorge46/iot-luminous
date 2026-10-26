@@ -24,6 +24,8 @@ firmware/**/config.h
 # Logs & Debug
 logs
 *.log
+.temp/
+supabase/.temp/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
