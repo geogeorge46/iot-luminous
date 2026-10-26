@@ -18,6 +18,9 @@
 #define SUPABASE_HOST       SUPABASE_PROJECT_REF ".supabase.co"
 #define SUPABASE_API_PATH   "/functions/v1/device-api"
 
+// Supabase Anon / Publishable Key (for gateway authentication)
+#define SUPABASE_ANON_KEY   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pbGd1ZXFrc3lxZWF4ZnBueGFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMTg2ODgsImV4cCI6MjEwODU5NDY4OH0.jRlVOPxjWUcU924hY6m45YpZ_CRn2kJASB3CBUFYMwI"
+
 // Device Provisioning Credentials (must match DB secret / Edge function default)
 #define DEVICE_IDENTIFIER   "ESP32-LIGHT-001"
 #define DEVICE_API_TOKEN    "esp32_super_secret_token_123"

@@ -260,6 +260,10 @@ void uploadTelemetryAndPoll() {
   }
 
   https.addHeader("Content-Type", "application/json");
+#ifdef SUPABASE_ANON_KEY
+  https.addHeader("apikey", SUPABASE_ANON_KEY);
+  https.addHeader("Authorization", String("Bearer ") + SUPABASE_ANON_KEY);
+#endif
   https.addHeader("x-device-token", DEVICE_API_TOKEN);
   https.setTimeout(6000);
 
@@ -372,6 +376,10 @@ void acknowledgeCommand(const char* commandId, const char* status, const char* e
   if (!https.begin(client, url)) return;
 
   https.addHeader("Content-Type", "application/json");
+#ifdef SUPABASE_ANON_KEY
+  https.addHeader("apikey", SUPABASE_ANON_KEY);
+  https.addHeader("Authorization", String("Bearer ") + SUPABASE_ANON_KEY);
+#endif
   https.addHeader("x-device-token", DEVICE_API_TOKEN);
   https.setTimeout(4000);
 
