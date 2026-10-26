@@ -1,0 +1,41 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// =========================================================================
+// Wi-Fi Configuration
+// =========================================================================
+#define WIFI_SSID           "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD       "YOUR_WIFI_PASSWORD"
+
+// =========================================================================
+// Supabase Project & Edge Function Configuration
+// =========================================================================
+// Replace with your Supabase Project reference ID, e.g. "abcdefghijklm"
+#define SUPABASE_PROJECT_REF "your-project-ref"
+
+// Supabase Edge Function URL for device-api
+// Full format: "https://<your-project-ref>.supabase.co/functions/v1/device-api"
+#define SUPABASE_HOST       SUPABASE_PROJECT_REF ".supabase.co"
+#define SUPABASE_API_PATH   "/functions/v1/device-api"
+
+// Device Provisioning Credentials (must match DB secret / Edge function default)
+#define DEVICE_IDENTIFIER   "ESP32-LIGHT-001"
+#define DEVICE_API_TOKEN    "esp32_super_secret_token_123"
+
+// =========================================================================
+// Hardware Pinout Definitions
+// =========================================================================
+#define PIN_LDR_ADC         34   // GPIO 34 (ADC1_CH6 - Input only, safe from Wi-Fi conflicts)
+#define PIN_LED_ACTUATOR    23   // GPIO 23 (Digital Output through 220Ω-330Ω resistor)
+#define PIN_PIR_MOTION      19   // GPIO 19 (Reserved for Phase 2 PIR motion sensor - inactive)
+
+// =========================================================================
+// Default Control Boundaries (Stored in NVS / Preferences)
+// =========================================================================
+#define DEFAULT_DARK_THRESHOLD   1500  // Turn ON when reading <= 1500 (standard polarity)
+#define DEFAULT_LIGHT_THRESHOLD  1800  // Turn OFF when reading >= 1800 (hysteresis band: 300)
+#define DEFAULT_POLARITY_INV     false // false: lower ADC = darker, true: higher ADC = darker
+#define DEFAULT_AUTO_MODE        true  // true: automatic mode, false: manual mode
+#define DEFAULT_UPLOAD_INTERVAL  5000  // Telemetry publish interval in milliseconds
+
+#endif // CONFIG_H

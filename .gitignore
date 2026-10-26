@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+*/node_modules
+frontend/node_modules
+
+# Production build outputs
+dist
+frontend/dist
+dist-ssr
+*.local
+
+# Environment files & Secrets
+.env
+.env.*
+!.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Hardware credentials (keep config.h.example tracked, ignore actual config.h)
+firmware/**/config.h
+!firmware/**/config.h.example
+
+# Logs & Debug
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.sw?
